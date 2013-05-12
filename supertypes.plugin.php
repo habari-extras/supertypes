@@ -16,21 +16,22 @@ class SuperTypes extends Plugin
 		$selector = $form->append('wrapper', 'type_selector');
 		$selector->class = 'container';
 		
+		// Utils::debug( 'bob' );
 
 		if(Controller::get_var('to_type') != NULL && $post->content_type != Controller::get_var('to_type')) { /* set type */
 			$post->content_type = Post::type(Controller::get_var('to_type'));
 			
 			$post->update();
 						
-			Utils::redirect(URL::get('admin', 'page=publish&slug=' . $post->slug)); // Refresh view
+			Utils::redirect(URL::get('admin', 'page=publish&id=' . $post->id)); // Refresh view
 		}
 				
 		foreach(Post::list_active_post_types() as $type) {
 			if($type != 0) {
-				if($post->slug == '') {
+				if($post->id == 0) {
 					$url = URL::get('admin', 'page=publish&content_type=' . Post::type_name($type));
 				} else {
-					$url = URL::get('admin', 'page=publish&to_type=' . Post::type_name($type) . '&slug=' . $post->slug);
+					$url = URL::get('admin', 'page=publish&to_type=' . Post::type_name($type) . '&id=' . $post->id);
 				}
 				
 				$html = '<a href="' . $url . '"';
