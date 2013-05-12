@@ -5,7 +5,7 @@
 	<url>http://lab.morgante.net/supertypes</url>
 	<author url="http://habariproject.org/">The Habari Community</author>
 	<author url="http://morgante.net">Morgante Pell</author>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description><![CDATA[Extends Habari to allow for more advanced content types]]></description>
 	<copyright>2009</copyright>
 </pluggable>
